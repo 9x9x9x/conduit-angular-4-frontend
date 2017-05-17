@@ -27,4 +27,3 @@ const authRouting: ModuleWithProviders = RouterModule.forChild([
     providers: []
 })
 export class AuthModule {}
-
