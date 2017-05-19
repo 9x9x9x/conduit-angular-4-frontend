@@ -5,33 +5,42 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
-//import { HomeComponent } from './home/home.component';
+import { ProfileModule } from './profile/profile.module';
+import { SettingsModule } from './settings/settings.module';
 import {
-  ApiService,
-  UserService, 
-  SharedModule,
-  FooterComponent,
-  HeaderComponent,
+   ApiService,
+   AuthGuard,
+   FooterComponent,
+   HeaderComponent,
+   JwtService,
+   ProfilesService,
+   SharedModule,
+   UserService
  } from './shared';
+
 
 const rootRouting: ModuleWithProviders = RouterModule.forRoot([], { useHash: true });
 
 @NgModule({
   declarations: [
     AppComponent,
-    //HomeComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
   ],
   imports: [
     AuthModule,
     BrowserModule,
-    SharedModule,
     HomeModule,
+    ProfileModule,
     rootRouting,
+    SettingsModule,
+    SharedModule,
   ],
   providers: [
     ApiService,
+    AuthGuard,
+    JwtService,
+    ProfilesService,
     UserService
   ],
   bootstrap: [AppComponent]
